@@ -1,15 +1,15 @@
 @charset "utf-8";
-.alogo{
-    border: 2px solid green;
-    
 
-}
+/*.alogo{
+    border-bottom: 2px solid green;    
+
+}*/
 
 #logo3 {
 	width: 100%;
 	margin: 15px;
 }
-
+/*
 .centrocab{
     border: 2px solid red;
 }
@@ -17,11 +17,27 @@
 .loginarea{
     border: 2px solid blue;
 }
-
+*/
 .imgtabla{
-    border: 2px solid orange;
+    border-bottom: 2px solid #c40444;
 }
 
 .cabecera {
 	height: auto;
+} 
+
+.uplogincol {
+    padding-top: 15px;
+}
+
+.submitbtn{
+    padding-top: 40px;
+}
+
+.submitbutton{
+    background-color: #c40444;
+    border-color: #c40444;
+}
+.submitbutton:hover{
+    
 }
