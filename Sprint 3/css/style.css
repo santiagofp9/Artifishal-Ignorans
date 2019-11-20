@@ -1,0 +1,16 @@
+@charset "utf-8";
+.alogo{
+    border: 2px solid green;
+}
+
+.centrocab{
+    border: 2px solid red;
+}
+
+.loginarea{
+    border: 2px solid blue;
+}
+
+.imgtabla{
+    border: 2px solid orange;
+}
