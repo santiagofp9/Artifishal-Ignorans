@@ -1,32 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link href="style.css" rel="stylesheet" type="text/css">
-    <title>Simplon, pwrd by AI!</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  <title>Hello, world!</title>
   </head>
   <body>
-    <section class="container-fluid">
-          
-    <!-- Cabecera-->
-
-             <!--hueco logo-->
+  <section class="container-fluid">
+        
+   <!-- Cabecera-->
+      
+       <!--hueco logo-->
+      
       <header class="row cabecera">
-        <div class="col-xs-3 col-md-3 col-lg-3 alogo">
-          <img src="img/logo3.png" id="logo3">      
-        </div>
-             <!--hueco en blanco-->
-        <div class="col-xs-5 col-md-5 col-lg-5 centrocab">
-        </div>
-             <!--hueco login-->
-        <div class="col-xs-3 col-md-3 col-lg-3 loginarea">
-          <div class="form-group row">
-            <div class="col-xs-9 col-md-9 col-lg-9">
+          <div class="col-xs-3 col-md-3 col-lg-3 alogo">
+              
+          <img src="img/logo3.png" id="logo3" alt="">  
+              
+          </div>
+          
+          <!--hueco en blanco-->
+          
+          <div class="col-xs-6 col-md-6 col-lg-6 centrocab">
+          
+          </div>
+          
+          <!--hueco login-->
+          
+          <div class="col-xs-3 col-md-3 col-lg-3 loginarea">
+            <div class="form-group row">
+            <div class="col-xs-8 col-md-8 col-lg-8">
               <div class="form-group row">
                 <div class="col-xs-12 col-md-12 col-lg-12 uplogincol">
                   <input type="text" class="form-control" name="user" placeholder="User">
@@ -43,32 +51,149 @@
                     <input type="submit" name="submit" class="col-xs-12 col-md-12 col-lg-12 form-control submitbutton btn btn-primary" value="Submit">
                 </div>
             </div> 
-          </div>  
-        </div>  
-             <!--hueco en blanco-->
+          </div>   
+              
+        </div> 
+          
+           <!--hueco en blanco-->
         <div class="col-xs-1 col-md-1 col-lg-1 blank">
         </div>
-
+          
+          
       </header>
-      <!-- Fin de Cabecera-->
+      
+    <!-- Fin de Cabecera-->
+      
+ </section>     
+<section class="container">      
+    <!-- Comiezo de tabla con imagen-->
+    <div class="row ">
+      
+      <div class="col-xs-12 col-md-12 col-lg-12 imgtabla ">
         
-        
-        
-      <!-- Comiezo de tabla con imagen-->
-      <div class="row ">
-
-        <div class="col-xs-12 col-md-12 col-lg-12 imgtabla">
-        </div>
-        
+        <img id="logo2" src="img/logo2.jpg" alt=" ">
+        <p id="texto" style="display: none"> Good Bye </p> <!--texto de prueba de cambio de elemento js-->
+      
       </div>
         
-      <!-- fin de tabla con imagen-->  
-        
-    </section>
+    </div>
+      
+    <!-- fin de tabla con imagen-->  
+      
+    
+    <!-- comienzo formulario -->
+<div class="row"> 
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-primary" id="bagregar" type="button" data-toggle="collapse" data-target="#formularios" aria-expanded="false" aria-controls="formularios">
+    Agregar
+    </button> 
+</div>
+</div>
+    
+    
+<div class="collapse" id="formularios">   
+      <!-- row fabrica-->
+<div id="fabrica">   
+    <h1>Fabrica</h1>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" name="fab" class="form-control"  placeholder="Nombre de fabrica">
+      </div>
+     
+    </form>
+</div>     
+      <!--fin row fabrica-->
+      
+      <!--comienzo row promo-->
+     
+<div id="promo">   
+    <h1>Promo</h1>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" name="promo" class="form-control"  placeholder="Nombre de promoción">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Año</label>
+        <input type="text" name="promoy" class="form-control"  placeholder="Año de promoción">
+      </div>
+    </form>
+</div>     
+      <!--fin row promo-->
+      
+      <!--comiezo row coders-->
+ <div id="coders"> 
+     <h1>Coders</h1>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" name="nomc" class="form-control"  placeholder="Nombre de coder">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Apellido</label>
+        <input type="text" name="apec" class="form-control"  placeholder="Apellido de coder">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Fecha de nacimiento</label>
+        <input type="text" name="anac" class="form-control"  placeholder="Fecha de nacimiento">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">DNI</label>
+        <input type="text" name="dni" class="form-control"  placeholder="No. Identificación">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Nacionalidad</label>
+        <input type="text" name="nac" class="form-control"  placeholder="Nacionalidad">
+      </div>  
+    </form>
+</div>     
+    <!--fin row coders-->  
+    
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-primary" id="enviar" type="submit">Enviar</button>
+    </div>   
+</div> 
+    
+</div>       
+    
+    
+
+    <!--fin formulario-->  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/fancy.js"></script>
+
   </body>
 </html>
