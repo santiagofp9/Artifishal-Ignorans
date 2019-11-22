@@ -45,25 +45,33 @@
 
 /* comienzo contenido central*/
 .imgtabla{
-    
-   width: 100%;
-   padding-left: 20em;
+    margin-top: 8em;
+    width: 100%;
+}
+
+#logo2{    
+    padding-left: 15em;
 }
 
 #bagregar{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
 }
 
 #fabrica{
     text-align: center;
     border: 2px solid blue;
+    padding-bottom: 20px;
 }
 
 #promo{
     text-align: center;
     border: 2px solid green;
+    padding-bottom: 20px;
 }
 
 #coders{
@@ -75,8 +83,20 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
 }
 
+#tabla{
+    display: none;
+    text-align: center;
+    height: 30em;
+    margin-top: -6em;
+}
+.tituloTabla{
+    background-color: #c40444 !important;
+    height: 2em;
+}
 
 
 /* fin contenido central*/
