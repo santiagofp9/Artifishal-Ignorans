@@ -1,4 +1,5 @@
-<!doctype html>
+<?php include_once('conex.php');?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -8,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    
   <title>Hello, world!</title>
   </head>
   <body>
@@ -48,7 +50,7 @@
             </div> 
             <div class="col-xs-3 col-md-3 col-lg-3 submitbtn">
                 <div class="form-group row">
-                    <input type="submit" name="submit" class="col-xs-12 col-md-12 col-lg-12 form-control submitbutton btn btn-primary" value="Submit">
+                    <input type="submit" name="submit" class="col-xs-12 col-md-12 col-lg-12 form-control submitbutton btn btn-danger" value="Submit">
                 </div>
             </div> 
           </div>   
@@ -69,12 +71,12 @@
     <!-- Comiezo de tabla con imagen-->
     <div class="row ">
       
-      <div class="col-xs-12 col-md-12 col-lg-12 imgtabla ">
+      <div class="col-xs-12 col-md-12 col-lg-12 imgtabla">
         
         <img id="logo2" src="img/logo2.jpg" alt=" ">
-        <table id="texto" class="table table-striped table-bordered">
+        <table id="tabla" class="table table-striped table-bordered">
 				<thead>
-					<tr class="bg-primary text-white">
+					<tr class="bg-primary text-white tituloTabla">
 						<th>ID#</th>
 						<th>Coder</th>
 						<th>Promoción</th>
@@ -112,7 +114,7 @@
     <!-- comienzo formulario -->
 <div class="row"> 
     <div class="col-xs-12 col-md-12 col-lg-12">
-    <button class="btn btn-primary" id="bagregar" type="button" data-toggle="collapse" data-target="#formularios" aria-expanded="false" aria-controls="formularios">
+    <button class="btn btn-danger" id="bagregar" href="#formularios" type="button" data-toggle="collapse" data-target="#formularios" aria-expanded="false" aria-controls="formularios">
     Agregar
     </button> 
 </div>
@@ -124,9 +126,26 @@
 <div id="fabrica">   
     <h1>Fabrica</h1>
     <form>
-      <div class="form-group">
+      <div class="form-row">
+        <div class="col">
         <label for="formGroupExampleInput">Nombre</label>
         <input type="text" name="fab" class="form-control"  placeholder="Nombre de fabrica">
+        </div>
+        <div class="col">
+        <label for="formGroupExampleInput">Ciudad</label>
+        <select name="ciudad" id="fabciudad" class="form-control">
+        <?php
+            include 'conex.php';
+            $consulta = "select ciudad from ciudad";
+            $resultado = mysqli_query($link, $consulta);
+            while ($arr = mysqli_fetch_array($resultado)) { ?>
+                <option value="<?php echo $arr[0];?>"selected>
+                    <?php echo $arr[1];?>
+                               
+                </option>
+         <?php       } ?>
+        </select>
+        </div>
       </div>
      
     </form>
@@ -142,9 +161,37 @@
         <label for="formGroupExampleInput">Nombre</label>
         <input type="text" name="promo" class="form-control"  placeholder="Nombre de promoción">
       </div>
-      <div class="form-group">
+      <div class="form-row">
+        <div class="col">
         <label for="formGroupExampleInput2">Año</label>
-        <input type="text" name="promoy" class="form-control"  placeholder="Año de promoción">
+        <select name="promoyear" id="promoyear" class="form-control">
+        <?php
+            include 'conex.php';
+            $consulta = "select promoyear from promoyear";
+            $resultado = mysqli_query($link, $consulta);
+            while ($arr = mysqli_fetch_array($resultado)) { ?>
+                <option value="<?php echo $arr[0];?>"selected>
+                    <?php echo $arr[1];?>
+                               
+                </option>
+         <?php       } ?>
+        </select>
+        </div>
+        <div class="col">
+        <label for="formGroupExampleInput2">Fábrica</label>
+        <select name="fabpromo" id="fabpromo" class="form-control">
+        <?php
+            include 'conex.php';
+            $consulta = "select fabrica from fabrica";
+            $resultado = mysqli_query($link, $consulta);
+            while ($arr = mysqli_fetch_array($resultado)) { ?>
+                <option value="<?php echo $arr[0];?>"selected>
+                    <?php echo $arr[1];?>
+                               
+                </option>
+         <?php       } ?>
+        </select>
+        </div>
       </div>
     </form>
 </div>     
@@ -170,9 +217,37 @@
         <label for="formGroupExampleInput2">DNI</label>
         <input type="text" name="dni" class="form-control"  placeholder="No. Identificación">
       </div>
-      <div class="form-group">
+      <div class="form-row">
+        <div class="col">
         <label for="formGroupExampleInput2">Nacionalidad</label>
-        <input type="text" name="nac" class="form-control"  placeholder="Nacionalidad">
+        <select name="nac" id="nac" class="form-control">
+        <?php
+            include 'conex.php';
+            $consulta = "select nacionalidad from pais";
+            $resultado = mysqli_query($link, $consulta);
+            while ($arr = mysqli_fetch_array($resultado)) { ?>
+                <option value="<?php echo $arr[0];?>"selected>
+                    <?php echo $arr[1];?>
+                               
+                </option>
+         <?php       } ?>
+        </select>
+        </div>
+        <div class="col"><!-- a modificar-->
+        <label for="formGroupExampleInput2">Promoción</label>
+        <select name="nac" id="nac" class="form-control">
+        <?php
+            include 'conex.php';
+            $consulta = "select nacionalidad from pais";
+            $resultado = mysqli_query($link, $consulta);
+            while ($arr = mysqli_fetch_array($resultado)) { ?>
+                <option value="<?php echo $arr[0];?>"selected>
+                    <?php echo $arr[1];?>
+                               
+                </option>
+         <?php       } ?>
+        </select>
+        </div>
       </div>  
     </form>
 </div>     
@@ -180,7 +255,7 @@
     
 <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-12">
-    <button class="btn btn-primary" id="enviar" type="submit">Enviar</button>
+    <button class="btn btn-danger" id="enviar" type="submit">Enviar</button>
     </div>   
 </div> 
     
