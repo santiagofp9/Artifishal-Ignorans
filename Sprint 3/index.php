@@ -85,7 +85,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
+					<?php /*
 					$s	=	'';
 					foreach($userData as $val){
 						$s++;
@@ -100,7 +100,7 @@
 							<a href="delete.php?delId=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
 						</td>
 					</tr>
-					<?php } ?>
+					<?php } */ ?>
 				</tbody>
 			</table>
            
@@ -125,7 +125,7 @@
       <!-- row fabrica-->
 <div id="fabrica">   
     <h1>Fabrica</h1>
-    <form>
+    <form action="insert.php" method="post">
       <div class="form-row">
         <div class="col">
         <label for="formGroupExampleInput">Nombre</label>
@@ -134,19 +134,26 @@
         <div class="col">
         <label for="formGroupExampleInput">Ciudad</label>
         <select name="ciudad" id="fabciudad" class="form-control">
-        <?php
+        <?php 
             include 'conex.php';
-            $consulta = "select ciudad from ciudad";
-            $resultado = mysqli_query($link, $consulta);
+            $consulta = "select id_ciudad, ciudad from ciudad";
+            $resultado = mysqli_query($link,$consulta);
             while ($arr = mysqli_fetch_array($resultado)) { ?>
-                <option value="<?php echo $arr[0];?>"selected>
+                <option value="<?php echo $arr[0];?>">
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } ?>
+         <?php       }  ?>
         </select>
         </div>
-      </div>
+        <input type="hidden" name="oculto" value="1">
+      </div> 
+
+      <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-danger" id="enviarf" type="submit">Enviar</button>
+    </div>   
+</div> 
      
     </form>
 </div>     
@@ -156,7 +163,7 @@
      
 <div id="promo">   
     <h1>Promo</h1>
-    <form>
+    <form action="insert.php" method="post">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
         <input type="text" name="promo" class="form-control"  placeholder="Nombre de promoción">
@@ -164,35 +171,42 @@
       <div class="form-row">
         <div class="col">
         <label for="formGroupExampleInput2">Año</label>
-        <select name="promoyear" id="promoyear" class="form-control">
-        <?php
+        <select name="promoy" id="promoyear" class="form-control">
+        <?php 
             include 'conex.php';
-            $consulta = "select promoyear from promoyear";
+            $consulta = "select id_promoyear, promoyear from promoyear";
             $resultado = mysqli_query($link, $consulta);
             while ($arr = mysqli_fetch_array($resultado)) { ?>
                 <option value="<?php echo $arr[0];?>"selected>
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } ?>
+         <?php       }  ?>
         </select>
         </div>
         <div class="col">
         <label for="formGroupExampleInput2">Fábrica</label>
         <select name="fabpromo" id="fabpromo" class="form-control">
-        <?php
+        <?php 
             include 'conex.php';
-            $consulta = "select fabrica from fabrica";
+            $consulta = "select id_fabrica, fabrica from fabrica";
             $resultado = mysqli_query($link, $consulta);
             while ($arr = mysqli_fetch_array($resultado)) { ?>
                 <option value="<?php echo $arr[0];?>"selected>
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } ?>
+            <?php      }  ?>
         </select>
         </div>
+        <input type="hidden" name="oculto" value="2">
       </div>
+
+      <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-danger" id="enviarp" type="submit">Enviar</button>
+    </div>   
+</div> 
     </form>
 </div>     
       <!--fin row promo-->
@@ -200,7 +214,7 @@
       <!--comiezo row coders-->
  <div id="coders"> 
      <h1>Coders</h1>
-    <form>
+    <form action="insert.php" method="post">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
         <input type="text" name="nomc" class="form-control"  placeholder="Nombre de coder">
@@ -221,7 +235,7 @@
         <div class="col">
         <label for="formGroupExampleInput2">Nacionalidad</label>
         <select name="nac" id="nac" class="form-control">
-        <?php
+        <?php /*
             include 'conex.php';
             $consulta = "select nacionalidad from pais";
             $resultado = mysqli_query($link, $consulta);
@@ -230,13 +244,13 @@
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } ?>
+         <?php       } */ ?>
         </select>
         </div>
         <div class="col"><!-- a modificar-->
         <label for="formGroupExampleInput2">Promoción</label>
         <select name="nac" id="nac" class="form-control">
-        <?php
+        <?php /*
             include 'conex.php';
             $consulta = "select nacionalidad from pais";
             $resultado = mysqli_query($link, $consulta);
@@ -245,7 +259,7 @@
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } ?>
+         <?php       }  */ ?>
         </select>
         </div>
       </div>  
