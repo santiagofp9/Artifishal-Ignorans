@@ -11,14 +11,16 @@ $("input").click(function(){
 });   
 });
 	
+// VALIDACIONES FORMULARIOS
 
-// pendiente a agregar el script del discord
-    /*jQuery(function(){
-        $("#bagregar").click(){
-    var jump= $(this).attr("href");
-    var new_position = $(jump).offset();
-    }
-    $('html, body').stop().animate({ scrollTop: new_position.top }, 500);
-    e.preventDefault();
-    });*/
-        
+function formFabrica(){
+  var nombre = document.getElementById("nombreFabrica").value;
+  if (nombre.length < 2 && nombre.length >= 32){
+      document.getElementById("nameInfo").classList.add("error")
+      document.getElementById("nameInfo").innerHTML = "Agrega más caracteres al campo"
+  }else{
+      document.getElementById("nameInfo").classList.remove("error")
+      document.getElementById("nameInfo").innerHTML = ""
+  }
+ 
+}

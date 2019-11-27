@@ -77,31 +77,57 @@
         <table id="tabla" class="table table-striped table-bordered">
 				<thead>
 					<tr class="bg-primary text-white tituloTabla">
-						<th>ID#</th>
-						<th>Coder</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
 						<th>Promoción</th>
 						<th>Fábrica</th>
 						<th class="text-center">Acción</th>
 					</tr>
 				</thead>
-				<tbody>
-					<?php /*
-					$s	=	'';
-					foreach($userData as $val){
-						$s++;
-					?>
-					<tr>
-						<td><?php echo $s;?></td>
-						<td><?php echo $val['username'];?></td>
-						<td><?php echo $val['useremail'];?></td>
-						<td><?php echo $val['userphone'];?></td>
-						<td align="center">
-							<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
-							<a href="delete.php?delId=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
-						</td>
-					</tr>
-					<?php } */ ?>
-				</tbody>
+          <?php
+    include 'conex.php';
+        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
+        FROM coder INNER JOIN promocion
+        ON promocion.id_promocion = coder.fk_promocion
+        INNER JOIN fabrica 
+        ON fabrica.id_fabrica = promocion.fk_fabrica;";
+        $r = mysqli_query($link, $con);
+    while ($a = mysqli_fetch_array($r)){?>
+    <tr>
+        <td><?php echo $a[0];?> </td>
+        <td><?php echo $a[1];?> </td>
+        <td><?php echo $a[2];?> </td>
+        <td><?php echo $a[3];?> </td>
+        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        </td>
+    </tr>
+    <div class="cajamensaje">
+
+<?php
+
+if(isset($_GET['msj'])){
+    if($_GET['msj'] == 'Error'){
+      echo '<script type="text/javascript">;
+      alert("No se pudo borrar");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script>';
+
+    }else{
+      echo  '<script type="text/javascript">;
+      alert("Borrado con éxito");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script> ';
+        
+    }
+}
+
+?>
+
+</div>
+<?php
+}
+?>
 			</table>
            
       </div>
@@ -125,11 +151,12 @@
       <!-- row fabrica-->
 <div id="fabrica">   
     <h1>Fabrica</h1>
-    <form action="insert.php" method="post">
+    <form action="insert.php" method="post" id="formFabrica">
       <div class="form-row">
         <div class="col">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="fab" class="form-control"  placeholder="Nombre de fabrica">
+        <input type="text" name="fab" class="form-control" id="nombreFabrica"  placeholder="Nombre de fabrica">
+        <span id="nameInfo"></span>
         </div>
         <div class="col">
         <label for="formGroupExampleInput">Ciudad</label>
@@ -163,10 +190,10 @@
      
 <div id="promo">   
     <h1>Promo</h1>
-    <form action="insert.php" method="post">
+    <form action="insert.php" method="post" id="formPromocion">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="promo" class="form-control"  placeholder="Nombre de promoción">
+        <input type="text" name="promo" class="form-control"  id="nombrePromocion" placeholder="Nombre de promoción">
       </div>
       <div class="form-row">
         <div class="col">
@@ -214,64 +241,67 @@
       <!--comiezo row coders-->
  <div id="coders"> 
      <h1>Coders</h1>
-    <form action="insert.php" method="post">
+    <form action="insert.php" method="post" id="formCoders">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="nomc" class="form-control"  placeholder="Nombre de coder">
+        <input type="text" name="nomc" class="form-control"  id="nombreCoder" placeholder="Nombre de coder">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Apellido</label>
-        <input type="text" name="apec" class="form-control"  placeholder="Apellido de coder">
+        <label for="formGroupExampleInput2">Apellidos</label>
+        <input type="text" name="apec" class="form-control"  id="apellidoCoder" placeholder="Apellido de coder">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput">Fecha de nacimiento</label>
-        <input type="text" name="anac" class="form-control"  placeholder="Fecha de nacimiento">
+        <input type="text" name="anac" class="form-control" id="nacimientoCoder"  placeholder="Fecha de nacimiento">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">DNI</label>
-        <input type="text" name="dni" class="form-control"  placeholder="No. Identificación">
+        <input type="text" name="dni" class="form-control" id="dniCoder"  placeholder="No. Identificación">
       </div>
       <div class="form-row">
         <div class="col">
         <label for="formGroupExampleInput2">Nacionalidad</label>
         <select name="nac" id="nac" class="form-control">
-        <?php /*
+        <?php 
             include 'conex.php';
-            $consulta = "select nacionalidad from pais";
+            $consulta = "select id_pais, nacionalidad from pais";
             $resultado = mysqli_query($link, $consulta);
             while ($arr = mysqli_fetch_array($resultado)) { ?>
                 <option value="<?php echo $arr[0];?>"selected>
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       } */ ?>
+            <?php      }  ?>
         </select>
         </div>
-        <div class="col"><!-- a modificar-->
+        <div class="col">
         <label for="formGroupExampleInput2">Promoción</label>
-        <select name="nac" id="nac" class="form-control">
-        <?php /*
+        <select name="fknazi" id="fknazi" class="form-control">
+        <?php 
             include 'conex.php';
-            $consulta = "select nacionalidad from pais";
+            $consulta = "select id_promocion, promocion from promocion";
             $resultado = mysqli_query($link, $consulta);
             while ($arr = mysqli_fetch_array($resultado)) { ?>
                 <option value="<?php echo $arr[0];?>"selected>
                     <?php echo $arr[1];?>
                                
                 </option>
-         <?php       }  */ ?>
+            <?php      }  ?>
         </select>
         </div>
+        <input type="hidden" name="oculto" value="3">
       </div>  
+      <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-danger" id="enviarc" type="submit">Enviar</button>
+    </div>   
+</div> 
     </form>
+    
 </div>     
     <!--fin row coders-->  
     
-<div class="row">
-    <div class="col-xs-12 col-md-12 col-lg-12">
-    <button class="btn btn-danger" id="enviar" type="submit">Enviar</button>
-    </div>   
-</div> 
+
     
 </div>       
     
@@ -279,7 +309,20 @@
 
     <!--fin formulario-->  
       
-      
+    <div class="mensaje"> 
+    <?php  
+    if (isset($_GET['msj'])){
+        if($_GET['msj']== 1){
+        echo "error en la modificacion";
+        }
+        else{
+        echo "exito";
+        }
+    }
+    
+    ?>
+
+    </div>
       
       
       
