@@ -9,19 +9,19 @@ $a = mysqli_fetch_array($r);
 <form method="post">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="nomc" class="form-control"  value="<?php echo $a[0];?>">
+        <input type="text" name="nomc" class="form-control v24"  value="<?php echo $a[0];?>">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Apellido</label>
-        <input type="text" name="apec" class="form-control"  value="<?php echo $a[1];?>">
+        <input type="text" name="apec" class="form-control v50"  value="<?php echo $a[1];?>">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput">Fecha de nacimiento</label>
-        <input type="text" name="anac" class="form-control"  value="<?php echo $a[2];?>">
+        <input type="text" name="anac" class="form-control vdate"  value="<?php echo $a[2];?>">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">DNI</label>
-        <input type="text" name="dni" class="form-control"  value="<?php echo $a[3];?>">
+        <input type="text" name="dni" class="form-control v10"  value="<?php echo $a[3];?>">
       </div>
       <div class="form-row">
         <div class="col">

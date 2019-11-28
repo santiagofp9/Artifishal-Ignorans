@@ -155,8 +155,8 @@ if(isset($_GET['msj'])){
       <div class="form-row">
         <div class="col">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="fab" class="form-control" id="nombreFabrica"  placeholder="Nombre de fabrica">
-        <span id="nameInfo"></span>
+        <input type="text" name="fab" class="form-control v32" id="nombreFabrica"  placeholder="Nombre de fabrica">
+        <span id="mensaje"></span>
         </div>
         <div class="col">
         <label for="formGroupExampleInput">Ciudad</label>
@@ -193,7 +193,8 @@ if(isset($_GET['msj'])){
     <form action="insert.php" method="post" id="formPromocion">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="promo" class="form-control"  id="nombrePromocion" placeholder="Nombre de promoción">
+        <input type="text" name="promo" class="form-control v32"  id="nombrePromocion" placeholder="Nombre de promoción">
+        <span class="mensaje"></span>
       </div>
       <div class="form-row">
         <div class="col">
@@ -213,7 +214,7 @@ if(isset($_GET['msj'])){
         </div>
         <div class="col">
         <label for="formGroupExampleInput2">Fábrica</label>
-        <select name="fabpromo" id="fabpromo" class="form-control">
+        <select name="fabpromo" id="fabpromo" class="form-control v32">
         <?php 
             include 'conex.php';
             $consulta = "select id_fabrica, fabrica from fabrica";
@@ -244,19 +245,23 @@ if(isset($_GET['msj'])){
     <form action="insert.php" method="post" id="formCoders">
       <div class="form-group">
         <label for="formGroupExampleInput">Nombre</label>
-        <input type="text" name="nomc" class="form-control"  id="nombreCoder" placeholder="Nombre de coder">
+        <input type="text" name="nomc" class="form-control v24"  id="nombreCoder" placeholder="Nombre de coder">
+        <span class="mensaje"></span>
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Apellidos</label>
-        <input type="text" name="apec" class="form-control"  id="apellidoCoder" placeholder="Apellido de coder">
+        <input type="text" name="apec" class="form-control v50"  id="apellidoCoder" placeholder="Apellido de coder">
+        <span class="mensaje"></span>
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput">Fecha de nacimiento</label>
-        <input type="text" name="anac" class="form-control" id="nacimientoCoder"  placeholder="Fecha de nacimiento">
+        <input type="text" name="anac" class="form-control vdate" id="nacimientoCoder"  placeholder="Fecha de nacimiento">
+        <span class="mensaje"></span>
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">DNI</label>
-        <input type="text" name="dni" class="form-control" id="dniCoder"  placeholder="No. Identificación">
+        <input type="text" name="dni" class="form-control v10" id="dniCoder"  placeholder="No. Identificación">
+        <span class="mensaje"></span>
       </div>
       <div class="form-row">
         <div class="col">
@@ -354,6 +359,6 @@ if(isset($_GET['msj'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/fancy.js"></script>
-
+    
   </body>
 </html>
