@@ -20,21 +20,21 @@
        <!--hueco logo-->
       
       <header class="row cabecera">
-          <div class="col-xs-3 col-md-3 col-lg-3 alogo">
+          <div class="col-xs-4 col-md-4 col-lg-4 alogo">
               
           <img src="img/logo3.png" id="logo3" alt="">  
               
           </div>
           
           <!--hueco en blanco-->
-          
-          <div class="col-xs-6 col-md-6 col-lg-6 centrocab">
-          
+          <div class="row">
+              <div class="col-xs-6 col-md-6 col-lg-6 centrocab">
+               <img id="logo2" src="img/logo2.jpg" alt=" ">
+              </div>
           </div>
-          
           <!--hueco login-->
           
-          <div class="col-xs-3 col-md-3 col-lg-3 loginarea">
+          <div class="col-xs-2 col-md-2 col-lg-2 loginarea">
             <div class="form-group row">
             <div class="col-xs-8 col-md-8 col-lg-8">
               <div class="form-group row">
@@ -58,7 +58,7 @@
         </div> 
           
            <!--hueco en blanco-->
-        <div class="col-xs-1 col-md-1 col-lg-1 blank">
+        
         </div>
           
           
@@ -69,11 +69,11 @@
  </section>     
 <section class="container">      
     <!-- Comiezo de tabla con imagen-->
-    <div class="row ">
+    <!--<div class="row ">
       
       <div class="col-xs-12 col-md-12 col-lg-12 imgtabla">
         
-        <img id="logo2" src="img/logo2.jpg" alt=" ">
+       
         <table id="tabla" class="table table-striped table-bordered">
 				<thead>
 					<tr class="bg-primary text-white tituloTabla">
@@ -132,19 +132,95 @@ if(isset($_GET['msj'])){
            
       </div>
         
-    </div>
+    </div>-->
       
     <!-- fin de tabla con imagen-->  
       
     
     <!-- comienzo formulario -->
+    
+   
+    
+    
+    
 <div class="row"> 
     <div class="col-xs-12 col-md-12 col-lg-12">
-    <button class="btn btn-danger" id="bagregar" href="#formularios" type="button" data-toggle="collapse" data-target="#formularios" aria-expanded="false" aria-controls="formularios">
-    Agregar
+    <button class="btn btn-danger" id="bagregar" href="#formularios, #tablafabrica" type="button" data-toggle="collapse" data-target="#formularios, #tablafabrica" aria-expanded="false" aria-controls="formularios">
+    Fabrica
     </button> 
 </div>
 </div>
+    
+ 
+    
+<div class="row collapse" id="tablafabrica"><!-- tabla de fabrica-->
+      
+     
+        <div class="col-xs-12 col-md-12 col-lg-12 tablaconsulta">
+       
+        <table id="tablafabrica" class="table table-striped table-bordered">
+				<thead>
+					<tr class="bg-primary text-white tituloTabla">
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Promoción</th>
+						<th>Fábrica</th>
+						<th class="text-center">Acción</th>
+					</tr>
+				</thead>
+          <?php
+    include 'conex.php';
+        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
+        FROM coder INNER JOIN promocion
+        ON promocion.id_promocion = coder.fk_promocion
+        INNER JOIN fabrica 
+        ON fabrica.id_fabrica = promocion.fk_fabrica;";
+        $r = mysqli_query($link, $con);
+    while ($a = mysqli_fetch_array($r)){?>
+    <tr>
+        <td><?php echo $a[0];?> </td>
+        <td><?php echo $a[1];?> </td>
+        <td><?php echo $a[2];?> </td>
+        <td><?php echo $a[3];?> </td>
+        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        </td>
+    </tr>
+    <div class="cajamensaje">
+
+<?php
+
+if(isset($_GET['msj'])){
+    if($_GET['msj'] == 'Error'){
+      echo '<script type="text/javascript">;
+      alert("No se pudo borrar");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script>';
+
+    }else{
+      echo  '<script type="text/javascript">;
+      alert("Borrado con éxito");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script> ';
+        
+    }
+}
+
+?>
+
+</div>
+<?php
+}
+?>
+			</table>
+           
+      </div>
+        
+    </div>   
+    <!--fin tabla fabrica-->     
+    
+    
+    
     
     
 <div class="collapse" id="formularios">   
@@ -183,11 +259,100 @@ if(isset($_GET['msj'])){
 </div> 
      
     </form>
-</div>     
+</div>
+
+  
+    
+    
+    
+</div>   
       <!--fin row fabrica-->
       
       <!--comienzo row promo-->
-     
+    
+ <div class="row"> 
+    <div class="col-xs-12 col-md-12 col-lg-12">
+    <button class="btn btn-danger" id="bagregar2" href="#formularios2, #tablapromo" type="button" data-toggle="collapse" data-target="#formularios2, #tablapromo" aria-expanded="false" aria-controls="formularios2">
+    Promoción
+    </button> 
+</div>
+</div>   
+    
+    
+ 
+ <div class="row collapse" id="tablapromo"><!-- tabla de promo-->
+      
+      <div class="col-xs-12 col-md-12 col-lg-12 tablaconsulta">
+        
+       
+        <table id="tabla" class="table table-striped table-bordered">
+				<thead>
+					<tr class="bg-primary text-white tituloTabla">
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Promoción</th>
+						<th>Fábrica</th>
+						<th class="text-center">Acción</th>
+					</tr>
+				</thead>
+          <?php
+    include 'conex.php';
+        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
+        FROM coder INNER JOIN promocion
+        ON promocion.id_promocion = coder.fk_promocion
+        INNER JOIN fabrica 
+        ON fabrica.id_fabrica = promocion.fk_fabrica;";
+        $r = mysqli_query($link, $con);
+    while ($a = mysqli_fetch_array($r)){?>
+    <tr>
+        <td><?php echo $a[0];?> </td>
+        <td><?php echo $a[1];?> </td>
+        <td><?php echo $a[2];?> </td>
+        <td><?php echo $a[3];?> </td>
+        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        </td>
+    </tr>
+    <div class="cajamensaje">
+
+<?php
+
+if(isset($_GET['msj'])){
+    if($_GET['msj'] == 'Error'){
+      echo '<script type="text/javascript">;
+      alert("No se pudo borrar");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script>';
+
+    }else{
+      echo  '<script type="text/javascript">;
+      alert("Borrado con éxito");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script> ';
+        
+    }
+}
+
+?>
+
+</div>
+<?php
+}
+?>
+			</table>
+           
+      </div>
+        
+    </div>      <!-- fin tabla de promo-->
+    
+    
+    
+    
+    
+    
+    
+    
+<div class="collapse" id="formularios2">     
 <div id="promo">   
     <h1>Promo</h1>
     <form action="insert.php" method="post" id="formPromocion">
@@ -237,9 +402,94 @@ if(isset($_GET['msj'])){
 </div> 
     </form>
 </div>     
+    
+</div> 
       <!--fin row promo-->
       
       <!--comiezo row coders-->
+    
+<div class="row"> 
+    <div class="col-xs-12 col-md-12 col-lg-12 ">
+    <button class="btn btn-danger" id="bagregar3" href="#formularios3, #tablacoders" type="button" data-toggle="collapse" data-target="#formularios3, #tablacoders" aria-expanded="false" aria-controls="formularios3">
+    Coders
+    </button> 
+</div>
+</div>    
+    
+    
+ <div class="row collapse" id="tablacoders"><!-- tabla de coders-->
+      
+      <div class="col-xs-12 col-md-12 col-lg-12 tablaconsulta">
+        
+       
+        <table id="tabla" class="table table-striped table-bordered">
+				<thead>
+					<tr class="bg-primary text-white tituloTabla">
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Promoción</th>
+						<th>Fábrica</th>
+						<th class="text-center">Acción</th>
+					</tr>
+				</thead>
+          <?php
+    include 'conex.php';
+        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
+        FROM coder INNER JOIN promocion
+        ON promocion.id_promocion = coder.fk_promocion
+        INNER JOIN fabrica 
+        ON fabrica.id_fabrica = promocion.fk_fabrica;";
+        $r = mysqli_query($link, $con);
+    while ($a = mysqli_fetch_array($r)){?>
+    <tr>
+        <td><?php echo $a[0];?> </td>
+        <td><?php echo $a[1];?> </td>
+        <td><?php echo $a[2];?> </td>
+        <td><?php echo $a[3];?> </td>
+        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        </td>
+    </tr>
+    <div class="cajamensaje">
+
+<?php
+
+if(isset($_GET['msj'])){
+    if($_GET['msj'] == 'Error'){
+      echo '<script type="text/javascript">;
+      alert("No se pudo borrar");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script>';
+
+    }else{
+      echo  '<script type="text/javascript">;
+      alert("Borrado con éxito");
+      window.location.replace ("http://localhost/FORMULARIO/Artifishal-Ignorans-master/Sprint%203/index.php");
+      </script> ';
+        
+    }
+}
+
+?>
+
+</div>
+<?php
+}
+?>
+			</table>
+           
+      </div>
+        
+    </div>      <!-- fin tabla de promo-->   
+    
+    
+    
+    
+    
+    
+    
+    
+<div class="collapse" id="formularios3"> 
  <div id="coders"> 
      <h1>Coders</h1>
     <form action="insert.php" method="post" id="formCoders">
@@ -304,11 +554,13 @@ if(isset($_GET['msj'])){
     </form>
     
 </div>     
+    
+</div> 
     <!--fin row coders-->  
     
 
     
-</div>       
+    
     
     
 
