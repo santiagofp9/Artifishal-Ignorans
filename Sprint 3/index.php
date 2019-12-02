@@ -161,29 +161,22 @@ if(isset($_GET['msj'])){
         <table id="tablafabrica" class="table table-striped table-bordered">
 				<thead>
 					<tr class="bg-primary text-white tituloTabla">
-						<th>Nombre</th>
-						<th>Apellido</th>
-						<th>Promoción</th>
-						<th>Fábrica</th>
+						<th>Fabrica</th>
+						<th>Status</th>
 						<th class="text-center">Acción</th>
 					</tr>
 				</thead>
           <?php
     include 'conex.php';
-        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
-        FROM coder INNER JOIN promocion
-        ON promocion.id_promocion = coder.fk_promocion
-        INNER JOIN fabrica 
-        ON fabrica.id_fabrica = promocion.fk_fabrica;";
+        $con = "select fabrica.fabrica, fabrica.fabricaStatus, fabrica.id_fabrica
+        FROM fabrica;";
         $r = mysqli_query($link, $con);
     while ($a = mysqli_fetch_array($r)){?>
     <tr>
         <td><?php echo $a[0];?> </td>
         <td><?php echo $a[1];?> </td>
-        <td><?php echo $a[2];?> </td>
-        <td><?php echo $a[3];?> </td>
-        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
-            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        <td><a href="modificar.php?simp=<?php echo $a[2];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[2];?>">Eliminar</a>
         </td>
     </tr>
     <div class="cajamensaje">
@@ -288,18 +281,16 @@ if(isset($_GET['msj'])){
         <table id="tabla" class="table table-striped table-bordered">
 				<thead>
 					<tr class="bg-primary text-white tituloTabla">
-						<th>Nombre</th>
-						<th>Apellido</th>
 						<th>Promoción</th>
 						<th>Fábrica</th>
+						<th>Status</th>
 						<th class="text-center">Acción</th>
 					</tr>
 				</thead>
           <?php
     include 'conex.php';
-        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
-        FROM coder INNER JOIN promocion
-        ON promocion.id_promocion = coder.fk_promocion
+        $con = "select promocion.promocion, promocion.fk_fabrica, promocion.statusPromocion, promocion.id_promocion
+        FROM promocion 
         INNER JOIN fabrica 
         ON fabrica.id_fabrica = promocion.fk_fabrica;";
         $r = mysqli_query($link, $con);
@@ -308,9 +299,8 @@ if(isset($_GET['msj'])){
         <td><?php echo $a[0];?> </td>
         <td><?php echo $a[1];?> </td>
         <td><?php echo $a[2];?> </td>
-        <td><?php echo $a[3];?> </td>
-        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
-            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        <td><a href="modificar.php?simp=<?php echo $a[3];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[3];?>">Eliminar</a>
         </td>
     </tr>
     <div class="cajamensaje">
@@ -426,7 +416,8 @@ if(isset($_GET['msj'])){
 				<thead>
 					<tr class="bg-primary text-white tituloTabla">
 						<th>Nombre</th>
-						<th>Apellido</th>
+						<th>1º Apellido</th>
+                        <th>2º Apellido</th>
 						<th>Promoción</th>
 						<th>Fábrica</th>
 						<th class="text-center">Acción</th>
@@ -434,7 +425,7 @@ if(isset($_GET['msj'])){
 				</thead>
           <?php
     include 'conex.php';
-        $con = "select coder.nombre, coder.apellidos, promocion.promocion, fabrica.fabrica, coder.id_coders
+        $con = "select coder.nombre, coder.apellido1, coder.apellido2, promocion.promocion, fabrica.fabrica, coder.id_coders
         FROM coder INNER JOIN promocion
         ON promocion.id_promocion = coder.fk_promocion
         INNER JOIN fabrica 
@@ -446,8 +437,9 @@ if(isset($_GET['msj'])){
         <td><?php echo $a[1];?> </td>
         <td><?php echo $a[2];?> </td>
         <td><?php echo $a[3];?> </td>
-        <td><a href="modificar.php?simp=<?php echo $a[4];?>">Editar</a> / 
-            <a href="delete.php?simpDelete=<?php echo $a[4];?>">Eliminar</a>
+        <td><?php echo $a[4];?> </td>
+        <td><a href="modificar.php?simp=<?php echo $a[5];?>">Editar</a> / 
+            <a href="delete.php?simpDelete=<?php echo $a[5];?>">Eliminar</a>
         </td>
     </tr>
     <div class="cajamensaje">
