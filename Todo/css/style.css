@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+/*.alogo{
+    border-bottom: 2px solid green;    
+}*/
+
+#logo3 {
+	width: 100%;
+	margin: 15px;
+}
+/*
+.centrocab{
+    border: 2px solid red;
+}
+
+.loginarea{
+    border: 2px solid blue;
+    
+}
+*/
+
+
+.cabecera {
+	
+    border-bottom: 2px solid #c40444;
+} 
+
+.uplogincol {
+    padding-top: 15px;
+}
+
+.submitbtn{
+    width: 100%;
+    padding-top: 40px;
+    font-size: 10vw;
+}
+
+.submitbutton{
+    background-color: #c40444;
+    border-color: #c40444;
+    font-size: 10pt;
+}
+
+
+
+/* comienzo contenido central*/
+.tablaconsulta{
+    
+    width: 100%;
+}
+
+#logo2{    
+    
+    width: 100%;
+    padding-left: 50px;
+}
+
+#bagregar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
+}
+
+#bagregar2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
+}
+
+#bagregar3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
+}
+
+#fabrica{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#promo{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#coders{
+    text-align: center;
+}
+
+#enviar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+}
+
+   
+
+#tablafabrica{
+    width: 100%;
+    text-align: center;
+    
+}
+
+#tablapromo{
+    text-align: center;
+}
+
+#tablacoders{
+    text-align: center;
+}
+
+.tituloTabla{
+    background-color: #c40444 !important;
+    
+}
+
+
+#enviarf{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#enviarp{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#enviarc{
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* fin contenido central*/
+
+
