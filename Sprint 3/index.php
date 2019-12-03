@@ -491,8 +491,13 @@ if(isset($_GET['msj'])){
         <span class="mensaje"></span>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Apellidos</label>
-        <input type="text" name="apec" class="form-control v50"  id="apellidoCoder" placeholder="Apellido de coder">
+        <label for="formGroupExampleInput2">1er Apellido</label>
+        <input type="text" name="apec1" class="form-control v50"  id="apellidoCoder1" placeholder="Apellido del coder">
+        <span class="mensaje"></span>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">2do Apellido</label>
+        <input type="text" name="apec2" class="form-control v50"  id="apellidoCoder2" placeholder="Apellido del coder">
         <span class="mensaje"></span>
       </div>
       <div class="form-group">
