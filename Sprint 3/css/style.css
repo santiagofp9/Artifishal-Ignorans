@@ -21,7 +21,7 @@
 
 
 .cabecera {
-	height: auto;
+	
     border-bottom: 2px solid #c40444;
 } 
 
@@ -32,9 +32,12 @@
 .submitbtn{
     
     padding-top: 40px;
+    
 }
 
 .submitbutton{
+    width: 100%;
+    font-size: 10pt;
     background-color: #c40444;
     border-color: #c40444;
 }
@@ -44,16 +47,36 @@
 
 
 /* comienzo contenido central*/
-.imgtabla{
-    margin-top: 8em;
+.tablaconsulta{
+    
     width: 100%;
 }
 
 #logo2{    
-    padding-left: 15em;
+    
+    width: 100%;
+    padding-left: 50px;
 }
 
 #bagregar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
+}
+
+#bagregar2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #c40444 !important;
+    border: solid #c40444 !important;
+    
+}
+
+#bagregar3{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
@@ -87,17 +110,42 @@
     border: solid #c40444 !important;
 }
 
-#tabla{
-    display: none;
+   
+
+#tablafabrica{
+    width: 100%;
     text-align: center;
-    height: 30em;
-    margin-top: -6em;
-}
-.tituloTabla{
-    background-color: #c40444 !important;
-    height: 2em;
+    
 }
 
+#tablapromo{
+    text-align: center;
+}
+
+#tablacoders{
+    text-align: center;
+}
+
+.tituloTabla{
+    background-color: #c40444 !important;
+    
+}
+
+
+#enviarf{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#enviarp{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#enviarc{
+    margin-top: 20px;
+    width: 100%;
+}
 
 /* fin contenido central*/
 
