@@ -201,3 +201,7 @@ select {
 .modificarFab{
     text-align: center;
 }
+
+span{
+    color: red;
+}
