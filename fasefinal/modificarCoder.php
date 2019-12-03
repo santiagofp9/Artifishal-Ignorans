@@ -19,7 +19,7 @@
       <header class="row cabecera">
           <div class="col-xs-4 col-md-4 col-lg-4 alogo">
               
-          <img src="img/logo3.png" id="logo3" alt="">  
+          <a href="index.php"><img src="img/logo3.png" id="logo3" alt=""></a>  
               
           </div>
           

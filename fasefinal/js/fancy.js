@@ -43,7 +43,7 @@ function validarNombre(){
       var namecoder= document.getElementById('nombreCoder').value;
       namecoder= namecoder.trim();
 
-      var apellidocoderUno= document.getElementById('apellidoCoder').value;
+      var apellidocoderUno= document.getElementById('apellidoCoder1').value;
       apellidocoderUno= apellidocoderUno.trim();
 
       var apellidocoderDos= document.getElementById('apellidoCoder2').value;
